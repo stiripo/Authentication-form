@@ -9,6 +9,12 @@ export function Authform() {
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isEmailValid, setIsEmailValid] = useState(true);
+
+    const isValidEmail = (email) => {
+        const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+        return emailRegex.test(email);
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -59,16 +65,19 @@ export function Authform() {
                     <h2>Login</h2>
                     <label>Email</label>
                     <input
-                        type="email"
+                        type="text"
                         value={email}
                         placeholder="Enter your email"
                         onChange={(e) => {
                             setEmail(e.target.value);
                             if (error) setError('');
                         }}
-                        required />
+                        onBlur={() => setIsEmailValid(isValidEmail(email))} />
+                    {!isEmailValid && (
+                        <div className={styles.error}>Please enter a valid email.</div>
+                    )}
                     <label>Password</label>
-                    <div className={styles.icon_container}style={{ display: "flex", position: "relative" }}>
+                    <div className={styles.icon_container} style={{ display: "flex", position: "relative" }}>
                         <input
                             type={showPassword ? "text" : "password"}
                             value={password}
@@ -76,8 +85,7 @@ export function Authform() {
                             onChange={(e) => {
                                 setPassword(e.target.value);
                                 if (error) setError('');
-                            }}
-                            required />
+                            }} />
                         <button className={styles.visibility_button}
                             type="button"
                             onClick={() => setShowPassword((prev) => !prev)}>
