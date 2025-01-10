@@ -27,7 +27,7 @@ export function makeServer() {
         return new Response(
           400,
           { 'Content-Type': 'application/json' },
-          { message: 'Authentication failed' }
+          { message: 'Incorrect email or password' }
         );
       });
     },

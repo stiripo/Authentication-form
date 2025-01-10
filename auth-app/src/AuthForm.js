@@ -7,6 +7,7 @@ export function Authform() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -28,7 +29,7 @@ export function Authform() {
             });
 
             if (!response.ok) {
-                throw new Error('Authentication failed');
+                throw new Error('Incorrect email or password');
             }
 
             // Handle success
@@ -56,15 +57,27 @@ export function Authform() {
                     onChange={(e) => setEmail(e.target.value)}
                     required />
                 <label>Password</label>
-                <input
-                    type="password"
-                    value={password}
-                    placeholder="Enter your password"
-                    onChange={(e) => setPassword(e.target.value)}
-                    required />
+                <div style={{ position: "relative" }}>
+                    <input
+                        type={showPassword ? "text" : "password"}
+                        value={password}
+                        placeholder="Enter your password"
+                        onChange={(e) => setPassword(e.target.value)}
+                        required />
+                    <button className={styles.visibility_button}
+                        type="button"
+                        onClick={() => setShowPassword((prev) => !prev)}>
+                        <span
+                            className={`material-icons ${styles.icon}`}>
+                            {showPassword ? "visibility_off" : "visibility"}
+                        </span>
+                    </button>
+                </div>
                 <a href="/forgot-password">Forgot password?</a>
-                {error && <div style={{ color: 'red' }}>{error}</div>}
-                <button type="submit"
+                {error && <div className={styles.error}>{error}</div>}
+                <button
+                    className={styles.submit_button}
+                    type="submit"
                     disabled={loading}>
                     {loading ? 'Logging in...' : 'Login'}
                 </button>

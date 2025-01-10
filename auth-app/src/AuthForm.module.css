@@ -1,4 +1,5 @@
 .login_container {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,29 +20,51 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
+.login_form label {
+    margin-top: 1rem;
+}
+
 .login_form input,
-.login_form button {
+.submit_button {
     padding: 0.75rem;
-    font-size: 0.8rem;
-    border: 1px solid #ccc;
     border-radius: 4px;
 }
 
-.login_form button {
-    margin-top: 1rem;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
+.login_form input {
+    width: 100%;
+    padding-right: 5px;
+    border: 1px solid #ccc;
+    font-size: 0.8rem;
 }
 
-.login_form button:hover {
+.submit_button {
+    margin-top: 2rem;
+    font-size: 1rem;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    background-color: #007bff;
+}
+
+.submit_button:hover {
     background-color: #0056b3;
 }
 
-.login_form label {
-    margin-top: 1rem;
+.visibility_button {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 0;
+}
+
+.icon {
+    color:  #ccc;
+    font-size: 1.2rem;
 }
 
 a {
@@ -61,3 +84,9 @@ a:visited {
 p {
     font-size: 0.8rem;
 }
+
+.error {
+    color: red;
+    font-size: 0.8rem;
+}
+
