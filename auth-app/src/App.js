@@ -1,4 +1,3 @@
-import './App.css';
 import { Authform } from './AuthForm';
 import { makeServer } from './mirage';
 import { useEffect } from 'react';

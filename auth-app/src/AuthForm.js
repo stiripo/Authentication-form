@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from './AuthForm.module.css'
 
 export function Authform() {
 
@@ -42,35 +43,33 @@ export function Authform() {
     };
 
     return (
-        <div>
-            <h2>Login</h2>
+        <div className={styles.login_container}>
             <form
-                onSubmit={handleSubmit}
-            >
-                <div>
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                </div>
-                <div>
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </div>
+                className={styles.login_form}
+                onSubmit={handleSubmit}>
+                <h2>Login</h2>
+                <label>Email</label>
+                <input
+                    type="email"
+                    value={email}
+                    placeholder="Enter your email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    required />
+                <label>Password</label>
+                <input
+                    type="password"
+                    value={password}
+                    placeholder="Enter your password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    required />
+                <a href="/forgot-password">Forgot password?</a>
                 {error && <div style={{ color: 'red' }}>{error}</div>}
                 <button type="submit"
-                    disabled={loading}
-                >
+                    disabled={loading}>
                     {loading ? 'Logging in...' : 'Login'}
                 </button>
+                <p>Don't have an account?  <a href="/sign-up">Sign up</a>
+                </p>
             </form>
         </div>
     )
