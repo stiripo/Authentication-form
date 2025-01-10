@@ -68,7 +68,7 @@ export function Authform() {
                         }}
                         required />
                     <label>Password</label>
-                    <div style={{ position: "relative" }}>
+                    <div className={styles.icon_container}style={{ display: "flex", position: "relative" }}>
                         <input
                             type={showPassword ? "text" : "password"}
                             value={password}
