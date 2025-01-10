@@ -62,7 +62,10 @@ export function Authform() {
                         type="email"
                         value={email}
                         placeholder="Enter your email"
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => {
+                            setEmail(e.target.value);
+                            if (error) setError('');
+                        }}
                         required />
                     <label>Password</label>
                     <div style={{ position: "relative" }}>
@@ -70,7 +73,10 @@ export function Authform() {
                             type={showPassword ? "text" : "password"}
                             value={password}
                             placeholder="Enter your password"
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={(e) => {
+                                setPassword(e.target.value);
+                                if (error) setError('');
+                            }}
                             required />
                         <button className={styles.visibility_button}
                             type="button"
