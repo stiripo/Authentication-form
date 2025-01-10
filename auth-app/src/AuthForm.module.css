@@ -90,3 +90,24 @@ p {
     font-size: 0.8rem;
 }
 
+.welcome_message {
+    text-align: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #fff;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.welcome_message h1 {
+    color: #007bff;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.welcome_message p {
+    font-size: 1rem;
+    color: #555;
+}
+
