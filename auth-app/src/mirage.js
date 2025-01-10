@@ -1,4 +1,5 @@
 import { createServer, Model, Response } from 'miragejs';
+import { authorizedUsers } from './mockUserDB';
 
 export function makeServer() {
   const server = createServer({
@@ -7,7 +8,7 @@ export function makeServer() {
     },
 
     seeds(server) {
-      server.create('user', { email: 'test@example.com', password: 'password123' });
+        authorizedUsers.forEach(user => server.create('user', user));
     },
 
     routes() {
