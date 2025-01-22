@@ -52,8 +52,7 @@
 .visibility_button {
     position: absolute;
     right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 27%;
     border: none;
     background: none;
     color: #fff;
@@ -67,6 +66,7 @@
 }
 
 .icon_container {
+    position: relative;
     display: flex;
     flex-grow: 1;
 }

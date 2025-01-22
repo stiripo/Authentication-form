@@ -78,7 +78,7 @@ export function Authform() {
                         <div className={styles.error}>Please enter a valid email.</div>
                     )}
                     <label for="password">Password</label>
-                    <div className={styles.icon_container} style={{ display: "flex", position: "relative" }}>
+                    <div className={styles.icon_container}>
                         <input
                             id="password"
                             type={showPassword ? "text" : "password"}
