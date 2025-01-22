@@ -63,9 +63,10 @@ export function Authform() {
                     className={styles.login_form}
                     onSubmit={handleSubmit}>
                     <h2>Login</h2>
-                    <label>Email</label>
+                    <label for="email">Email</label>
                     <input
-                        type="text"
+                        id="email"
+                        type="email"
                         value={email}
                         placeholder="Enter your email"
                         onChange={(e) => {
@@ -76,9 +77,10 @@ export function Authform() {
                     {!isEmailValid && (
                         <div className={styles.error}>Please enter a valid email.</div>
                     )}
-                    <label>Password</label>
+                    <label for="password">Password</label>
                     <div className={styles.icon_container} style={{ display: "flex", position: "relative" }}>
                         <input
+                            id="password"
                             type={showPassword ? "text" : "password"}
                             value={password}
                             placeholder="Enter your password"
